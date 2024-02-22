@@ -20,6 +20,7 @@ def extract_table_from_pdf(pdf_file):
 
     return table
 
+
 def extract_num_decreto(pdf_file):
     """
     Extrae el número de decreto del párrafo 4. APROBACIÓN DE BASES Y OTROS ANTECEDENTES
@@ -35,8 +36,6 @@ def extract_num_decreto(pdf_file):
                 numero = coincidencias[0]
                 break
     return numero
-
-
 
 
 def extract_page_containing_keyword(pdf_file, keyword, case_sensitive=False):
@@ -63,7 +62,7 @@ def extract_page_containing_keyword(pdf_file, keyword, case_sensitive=False):
 
 def extract_paragraphs_containing_keyword(pdf_file, keyword, case_sensitive=False):
     """
-    Obtiene la fecha de una línea debajo de una palabra clave.
+    Extrae el párrafo de un PDF que contenga una palabra clave.
     """
     paragraphs = []
     keyword_found = False
@@ -95,6 +94,7 @@ def extract_paragraphs_containing_keyword(pdf_file, keyword, case_sensitive=Fals
 
     return paragraphs
 
+
 # Regex para extraer fechas
 regex_fecha = r"\d{1,2}/\d{1,2}/\d{4}|\d{1,2} de [a-zA-Z]+ de \d{4}"
 
@@ -113,6 +113,8 @@ def extract_date_from_keyword(pdf_file, keyword):
                     if date:
                         return date[0]
     return date[0]
+
+
 def extract_date_from_last_page(pdf_file):
     """
     Obtiene la fecha del último párrafo de un PDF.
