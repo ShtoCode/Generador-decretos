@@ -47,11 +47,25 @@ virtualenv venv
 ```
 pip install -r requirements.txt
 ```
+puede que surga algún error en un entorno windows, por ende sigue las siguientes instrucciones para solventar esto:
+```
+pip install setuptools
+pip install aiohttp frozenlist multidict tiktoken yarl
+```
 
-6. Establecer variable de sesión para clave secreta:
+6. Crea un archivo .env y coloca tus variables de entorno (basate en .env.example)
 
 ```
-set SECRET_KEY=CLAVE_SECRETA
+   DATABASE_HOST=localhost | host de la base de datos
+   DATABASE_USER=sa o cualquier otro
+   DATABASE_PASSWORD=password DB
+   SECRET_KEY=clavesecreta
+   OPENAI_API_KEY=TOKEN DE OPENAI
+   MAIL_SERVER=smtp.office365.com
+   MAIL_USERNAME=correo
+   MAIL_DEFAULT_SENDER=mismocorreo
+   MAIL_PASSWORD=PASSWORD
+
 ```
 
 7. Levantar el servidor Flask:
@@ -59,4 +73,19 @@ set SECRET_KEY=CLAVE_SECRETA
 ```
 flask run
 ```
+Si quieres utilizar un modo debug para ver los cambios que hagas, ejecuta el siguiente comando en vez del anterior:
+```
+flask --debug run
+```
+
+# ACTUALIZAR CAMBIOS EN PRODUCCCIÓN
+
+Para poder actualizar los cambios que se hagan en producción se debe acceder al servidor y realizar los siguientes comandos:
+``` Obtener los cambios nuevos del repositorio
+git pull
+```
+```Actualizar el servicio de la aplicación
+sudo systemctl restart Generador-decretos.service
+```
+
 
