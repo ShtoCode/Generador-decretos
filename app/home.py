@@ -5,6 +5,7 @@ from werkzeug.exceptions import HTTPException
 from docx import Document
 from docx.shared import Inches, Pt
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
+from dotenv import load_dotenv
 import concurrent.futures
 import shortuuid
 import os
@@ -12,7 +13,6 @@ import json
 import mammoth
 from app.auth import login_required
 from app.db import get_db
-
 from app.data_handling.data_extracting import (extract_table_from_pdf, extract_num_decreto, 
                                                extract_paragraphs_containing_keyword, extract_date_from_keyword, extract_date_from_last_page, extract_last_page, obtener_direccion, obtener_propuesta, extract_page_containing_keyword)
 
@@ -25,6 +25,7 @@ from app.data_handling.data_writing import add_table_to_word_document
 from openai import OpenAI
 import json
 
+load_dotenv()
 
 bp = Blueprint('home', __name__, url_prefix="/")
 

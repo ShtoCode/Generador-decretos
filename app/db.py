@@ -4,6 +4,9 @@ import click
 from flask import current_app, g
 from flask.cli import with_appcontext
 from .schema import instructions
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 def get_db():

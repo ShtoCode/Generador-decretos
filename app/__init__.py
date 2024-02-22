@@ -1,7 +1,10 @@
 from flask import Flask, g, render_template, session
 from flask_session import Session
 from flask_mail import Mail
+from dotenv import load_dotenv
 import os
+
+load_dotenv()
 
 
 def create_app():
