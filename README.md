@@ -78,7 +78,7 @@ Si quieres utilizar un modo debug para ver los cambios que hagas, ejecuta el sig
 flask --debug run
 ```
 
-# ACTUALIZAR CAMBIOS EN PRODUCCCIÓN
+# Actualizar cambios en producción
 
 Para poder actualizar los cambios que se hagan en producción se debe acceder al servidor y realizar los siguientes comandos:
 ``` Obtener los cambios nuevos del repositorio
