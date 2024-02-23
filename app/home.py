@@ -485,7 +485,7 @@ def generate_word(filename):
                 doc.add_paragraph(considerando_septimo)
             decreto_p = doc.add_paragraph()
             decreto_r = decreto_p.add_run("DECRETO:")
-
+            #Comentario de prueba
             decreto_r.bold = True
             if posee_linea:
                 add_decretos_lineas(doc, idp, titulo, rechazados, inadmisibles,
