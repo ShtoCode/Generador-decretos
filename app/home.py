@@ -443,9 +443,13 @@ def generate_word(filename):
                 considerando_quinto = f"\n5.- Que, se cuenta con la disponibilidad presupuestaria para este fin, según da cuenta el Certificado de Factibilidad N° {cdp}, de fecha {datecdp_str}."
                 considerando_sexto = f"\n6.- Que, en el Numeral 13 de las Bases Administrativas, establece que la Unidad Técnica responsable de supervisar la ejecución de {valor_propuesta.upper()} será la {valor_direccion}."
 
-            table = extract_table_from_pdf(pdf_path)
+            table = extract_table_from_pdf(pdf_path) #La tabla no esta descartando los saltos de linea y los ingresa como un dato inexistente
             output_file_path = pdf_path.replace(
                 ".pdf", "-PLANTILLA_DECRETO.docx")
+            for i, row in enumerate(table):
+                for j, cell in enumerate(row):
+                    if cell is None:
+                        table[i][j] = "" 
             header = doc.sections[0].header
             paragraph = header.paragraphs[0]
             logo_run = paragraph.add_run()
